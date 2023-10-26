@@ -1,0 +1,12 @@
+Steps for migrating to ROS2:
+
+1) Message and service definitions must be in a separate package, under <package_name>/msg/ or <package_name>/srv/ respectively
+2) ROS specific code must be refactored (e.g. some messages are now under x/msg/Message instead of x/Message, roscpp -> rclcpp, etc.)
+3) Naming convention changes minimally, package.xml format should be in version 2 if not already done
+
+Steps for using the bridge:
+1) After creating corresponding messages for ROS2 (in a new interface exclusive package, e.g.: new_package_interfaces/msg), it is recommended to create a yaml mapping and export it (not always necessary if message location and names are the same, but it didn't work for me). See https://github.com/ros2/ros1_bridge/blob/master/doc/index.rst#example-workspace-setup
+2) Build both the ROS1 package and the ROS2 interfaces package (the actual package is not necessary for building the bridge). Follow ros bridge instructions for building the bridge, i.e.: source ROS1 setup.bash, source ROS2 setup.bash, source ROS1 workspace setup, source ROS2 workspace setup, then build. Check that interfaces are paired correctly: `ros2 run ros1_bridge dynamic bridge --print-pairs | grep <package name or message name>` (Grep helps filter only the interesting ones)
+3) Once that is setup, you can start a roscore and the ros1 and ros2 sides. The bridge runs on ROS2 but requires connection to the ROS1 core, so make sure to set ROS_MASTER_URI in the terminal where it will run, the run it. ROS1 nodes should be able to connect with ROS2 nodes if they use the same topics. Note that by default topics are not bridged if there is not a publisher and a subscriber on opposite sides of the bridge *** Flag --bridge-all-topics should allow this but is very inefficient. Another option is using parameter_bridge https://github.com/ros2/ros1_bridge/tree/master#example-4-bridge-only-selected-topics-and-services
+
+Option with docker: The image one can pull only bridges standard messages and services, as it needs to be built with the ROS1/2 packages to bridge custom ones. Need to check further if there is a relatively easy to pack the bridge into a docker by just including the message definitions

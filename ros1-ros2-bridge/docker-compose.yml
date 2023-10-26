@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  ros1:
+    build:
+      context: ./
+      dockerfile: ros1.Dockerfile
+    ports:
+      - "11311:11311"
+  bridge:
+    image: ros:foxy-ros1-bridge
+    environment:
+      - "ROS_HOSTNAME=bridge"
+      - "ROS_MASTER_URI=http://ros1:11311"
+    command: ros2 run ros1_bridge dynamic_bridge
