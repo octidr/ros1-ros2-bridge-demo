@@ -28,9 +28,21 @@ ament_target_dependencies(ros2_demo rclcpp std_msgs ros2_part_interfaces)
 add_executable(ros2_listener src/ros2_demo_sub.cpp)
 ament_target_dependencies(ros2_listener rclcpp std_msgs ros2_part_interfaces)
 
+add_executable(add_three_ints_server src/add_three_ints_server.cpp)
+ament_target_dependencies(add_three_ints_server rclcpp std_msgs ros2_part_interfaces)
+
+add_executable(add_three_ints_client src/add_three_ints_client.cpp)
+ament_target_dependencies(add_three_ints_client rclcpp std_msgs ros2_part_interfaces)
+
+add_executable(add_two_ints_client src/add_two_ints_client.cpp)
+ament_target_dependencies(add_two_ints_client rclcpp std_msgs ros2_part_interfaces)
+
 install(TARGETS
   ros2_demo
   ros2_listener
+  add_three_ints_server
+  add_three_ints_client
+  add_two_ints_client
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)

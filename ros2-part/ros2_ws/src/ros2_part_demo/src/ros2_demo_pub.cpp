@@ -31,7 +31,7 @@ class Ros2Demo : public rclcpp::Node
       msg.first_name = first_names[count_%6];
       msg.first_name = last_names[count_%6];
       msg.age = 25 + count_%35;
-      RCLCPP_INFO(this->get_logger(), "Publishing %d: '%s %s %d'", count_, msg.first_name.c_str(), msg.last_name.c_str(), msg.age);
+      RCLCPP_INFO(this->get_logger(), "Publishing %ld: '%s %s %d'", (long int) count_, msg.first_name.c_str(), msg.last_name.c_str(), msg.age);
       publisher_->publish(msg);
     }
     rclcpp::TimerBase::SharedPtr timer_;
