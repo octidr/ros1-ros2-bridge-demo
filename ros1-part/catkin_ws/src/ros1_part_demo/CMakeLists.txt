@@ -61,6 +61,7 @@ add_service_files(
 #   Service1.srv
 #   Service2.srv
   AddTwoInts.srv
+  AddThreeInts.srv
 )
 
 ## Generate actions in the 'action' folder
@@ -206,7 +207,7 @@ include_directories(
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
 
-## Add folders to be run by python nosetests
+## Add folders to be run by python nosetests|||
 # catkin_add_nosetests(test)
 
 add_executable(ros1_demo src/ros1_demo.cpp)
@@ -216,3 +217,15 @@ add_dependencies(ros1_demo ros1_part_demo_generate_messages_cpp)
 add_executable(ros1_listener src/ros1_listener.cpp)
 target_link_libraries(ros1_listener ${catkin_LIBRARIES})
 add_dependencies(ros1_listener ros1_part_demo_generate_messages_cpp)
+
+add_executable(add_two_ints_server src/add_two_ints_server.cpp)
+target_link_libraries(add_two_ints_server ${catkin_LIBRARIES})
+add_dependencies(add_two_ints_server ros1_part_demo_generate_messages_cpp)
+
+add_executable(add_two_ints_client src/add_two_ints_client.cpp)
+target_link_libraries(add_two_ints_client ${catkin_LIBRARIES})
+add_dependencies(add_two_ints_client ros1_part_demo_generate_messages_cpp)
+
+add_executable(add_three_ints_client src/add_three_ints_client.cpp)
+target_link_libraries(add_three_ints_client ${catkin_LIBRARIES})
+add_dependencies(add_three_ints_client ros1_part_demo_generate_messages_cpp)
