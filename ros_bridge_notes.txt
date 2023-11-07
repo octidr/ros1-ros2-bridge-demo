@@ -10,3 +10,8 @@ Steps for using the bridge:
 3) Once that is setup, you can start a roscore and the ros1 and ros2 sides. The bridge runs on ROS2 but requires connection to the ROS1 core, so make sure to set ROS_MASTER_URI in the terminal where it will run, the run it. ROS1 nodes should be able to connect with ROS2 nodes if they use the same topics. Note that by default topics are not bridged if there is not a publisher and a subscriber on opposite sides of the bridge *** Flag --bridge-all-topics should allow this but is very inefficient. Another option is using parameter_bridge https://github.com/ros2/ros1_bridge/tree/master#example-4-bridge-only-selected-topics-and-services
 
 Option with docker: The image one can pull only bridges standard messages and services, as it needs to be built with the ROS1/2 packages to bridge custom ones. Need to check further if there is a relatively easy to pack the bridge into a docker by just including the message definitions
+
+-- For running on different machines:
+
+1) ROS2 sides must be able to discover each other with udp messages, ensure no firewall active. Nothing else necessary
+2) ROS1 sides: make sure to set the correct ROS_MASTER_URI and all nodes should set ROS_IP to the IP for the proper interface
