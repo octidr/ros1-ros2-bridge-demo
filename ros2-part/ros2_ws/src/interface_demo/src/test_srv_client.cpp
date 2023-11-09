@@ -19,7 +19,7 @@ int main(int argc, char **argv)
     node->create_client<device_srvs::srv::GripperControl>("interface_test_srv");
 
   auto request = std::make_shared<device_srvs::srv::GripperControl::Request>();
-  request->isOpen = atoi(argv[1]) > 0 ? true : false;
+  request->is_open = atoi(argv[1]) > 0 ? true : false;
   request->range = atof(argv[2]);
   request->force = atof(argv[3]);
   request->speed = atof(argv[4]);
