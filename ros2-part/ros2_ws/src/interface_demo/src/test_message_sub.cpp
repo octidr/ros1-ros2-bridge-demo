@@ -20,7 +20,7 @@ class Ros2Listener : public rclcpp::Node
     {
       RCLCPP_INFO(this->get_logger(), "ROS2 side heard:\nDevice: %s\n,Mode: %d\n,Action: %d Identifier:%s,\nResult: %d\nTimestamp: %s", s->device_name.c_str(), s->mode, s->action, s->action_identifier.c_str(), s->result, s->time_stamp.c_str());
     }
-    rclcpp::Subscription<device_msgs::msg::MyMsg>::SharedPtr subscription_;
+    rclcpp::Subscription<device_msgs::msg::Status>::SharedPtr subscription_;
 };
 
 int main(int argc, char * argv[])

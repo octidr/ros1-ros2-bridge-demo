@@ -36,7 +36,7 @@ class Ros2Demo : public rclcpp::Node
       std::ostringstream oss;
       oss << std::put_time(&tm, "%d-%m-%Y %H-%M-%S");
       auto str = oss.str();
-      s.time_tamp = str;
+      s.time_stamp = str;
 
       RCLCPP_INFO(this->get_logger(), "SENDING message:\nDevice: %s\n,Mode: %d\n,Action: %d Identifier:%s,\nResult: %d\nTimestamp: %s", s.device_name.c_str(), s.mode, s.action, s.action_identifier.c_str(), s.result, s.time_stamp.c_str());
       publisher_->publish(s);

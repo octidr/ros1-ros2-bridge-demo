@@ -1,7 +1,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "device_srvs/srv/gripper_control.hpp"
 
-void test(const std::shared_ptr<device_srvs::srv::Status::Request> req, std::shared_ptr<device_srvs::srv::Status::Response> res)
+void test(const std::shared_ptr<device_srvs::srv::GripperCOntrol::Request> req, std::shared_ptr<device_srvs::srv::GripperControl::Response> res)
 {
 	res.res = req.is_open;
 	RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "SRV REQUEST: OPEN: %s\n Range: %f\n,Force: %f\n,Speed: %f\n,Acceleration: %f\n\nRESPONSE: %s", req.is_open ? "true" : "false", req.range, req.force, req.speed, req.acceleration, res.res ? "true" : "false");
