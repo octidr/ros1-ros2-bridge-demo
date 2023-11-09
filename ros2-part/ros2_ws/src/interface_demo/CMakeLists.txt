@@ -17,9 +17,29 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(device_msgs REQUIRED)
+find_package(device_srvs REQUIRED)
+
+add_executable(test_message_pub src/test_message_pub.cpp)
+ament_target_dependencies(test_message_pub rclcpp std_msgs device_msgs)
+
+add_executable(test_message_sub src/test_message_sub.cpp)
+ament_target_dependencies(test_message_sub rclcpp std_msgs device_msgs)
+
+add_executable(test_srv_server src/test_srv_server.cpp)
+ament_target_dependencies(test_srv_server rclcpp std_msgs device_srvs)
+
+add_executable(test_srv_client src/test_srv_client.cpp)
+ament_target_dependencies(test_srv_client rclcpp std_msgs device_srvs)
+
+install(TARGETS
+  test_message_pub
+  test_message_sub
+  test_srv_server
+  test_srv_client
+  DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
