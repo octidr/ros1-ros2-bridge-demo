@@ -1,4 +1,4 @@
-bool isOpen
+bool is_open
 float32 range
 float32 force
 float32 speed

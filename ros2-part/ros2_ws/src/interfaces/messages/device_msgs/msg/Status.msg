@@ -1,11 +1,11 @@
-string deviceName
+string device_name
 
 int32 mode
 
 int32 action
 
-string actionIdentifier
+string action_identifier
 
 int32 result
 	
-string timeStamp
+string time_stamp
