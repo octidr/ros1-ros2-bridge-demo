@@ -19,10 +19,11 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(device_msgs REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/GripperControl.srv"
   "srv/Status.srv"
-  DEPENDENCIES std_msgs # Add packages that above messages depend on
+  DEPENDENCIES std_msgs device_msgs# Add packages that above messages depend on
 )
 
 if(BUILD_TESTING)
