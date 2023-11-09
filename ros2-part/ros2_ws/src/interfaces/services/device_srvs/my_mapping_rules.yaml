@@ -1,0 +1,15 @@
+-
+  ros1_package_name: 'device_srvs'
+  ros1_message_name: 'GripperControl'
+  ros2_package_name: 'device_srvs'
+  ros2_message_name: 'GripperControl'
+  fields_1_to_2:
+    isOpen: 'is_open'
+    range: 'range'
+    force: 'force'
+    speed: 'speed'
+    acceleration: 'acceleration'
+
+-
+  ros1_package_name: 'device_srvs'
+  ros2_package_name: 'device_srvs'

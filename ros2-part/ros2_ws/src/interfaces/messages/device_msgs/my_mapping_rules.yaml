@@ -1,0 +1,29 @@
+-
+  ros1_package_name: 'device_msgs'
+  ros1_message_name: 'Status'
+  ros2_package_name: 'device_msgs'
+  ros2_message_name: 'Status'
+  fields_1_to_2:
+    deviceName: 'device_name'
+    mode: 'mode'
+    action: 'action'
+    actionIdentifier: 'action_identifier'
+    result: 'result'
+    timeStamp: 'time_stamp'
+
+-
+  ros1_package_name: 'device_msgs'
+  ros1_message_name: 'CameraCalibData'
+  ros2_package_name: 'device_msgs'
+  ros2_message_name: 'CameraCalibData'
+  fields_1_to_2:
+    width: 'width'
+    height: 'height'
+    encoding: 'encoding'
+    K: 'k'
+    E: 'e'
+    P: 'p'
+
+-
+  ros1_package_name: 'device_msgs'
+  ros2_package_name: 'device_msgs'

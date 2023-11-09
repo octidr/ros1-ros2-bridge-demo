@@ -37,4 +37,10 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+
+install(
+  FILES my_mapping_rules.yaml
+  DESTINATION share/${PROJECT_NAME})
+
+
 ament_package()
