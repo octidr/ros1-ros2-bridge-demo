@@ -10,7 +10,3 @@
     speed: 'speed'
     acceleration: 'acceleration'
 
--
-  ros1_package_name: 'device_srvs'
-  ros2_package_name: 'device_srvs'
-    

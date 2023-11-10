@@ -24,6 +24,3 @@
     E: 'e'
     P: 'p'
 
--
-  ros1_package_name: 'device_msgs'
-  ros2_package_name: 'device_msgs'
