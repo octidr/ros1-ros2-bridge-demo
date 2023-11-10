@@ -14,4 +14,4 @@ Option with docker: The image one can pull only bridges standard messages and se
 -- For running on different machines:
 
 1) ROS2 sides must be able to discover each other with udp messages, ensure no firewall active. Nothing else necessary
-2) ROS1 sides: make sure to set the correct ROS_MASTER_URI and all nodes should set ROS_IP to the IP for the proper interface
+2) ROS1 sides: make sure to set the correct ROS_MASTER_URI and all nodes should set ROS_IP to the IP for the proper interface. roscore and nodes hosting services must also set their ROS_HOSTNAME to the correct IP.
